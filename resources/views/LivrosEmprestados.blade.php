@@ -143,6 +143,7 @@
                 <th>TITULO</th>
                 <th>AUTOR</th>
                 <th>STATUS</th>
+                <th>DEVOLVER LIVRO</th>
             </tr>
         </thead>
         <tbody>
@@ -151,6 +152,13 @@
             <td>{{ $emprestimo->livro->titulo }}</td>
             <td>{{ $emprestimo->livro->autor }}</td>
             <td>{{ $emprestimo->status_emprestimo }}</td>
+            <td>
+                    <form action="/devolverLivro" method="post">
+                        @csrf
+                        <input type="hidden" name="emprestimo_id" value="{{ $emprestimo->id }}">
+                        <button type="submit">Devolver</button>
+                    </form>
+                </td>
         </tr>
     @endforeach
         </tbody>

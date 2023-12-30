@@ -130,11 +130,13 @@
         <a href="/login">Sair</a>
     </nav>
     <h2>Livros Emprestados</h2>
-        <hr>
+    <hr>
 
-@if(isset($mensagem))
-    <p style="color: #022249; font-size:xx-large; font-weight: bold; font-family: 'Snell Roundhand, cursive'; text-align: center;margin-top: 150px;">{{ $mensagem }}</p>
-@else
+    @if(isset($mensagem))
+    <p
+        style="color: #022249; font-size:xx-large; font-weight: bold; font-family: 'Snell Roundhand, cursive'; text-align: center;margin-top: 150px;">
+        {{ $mensagem }}</p>
+    @else
     <table>
         <thead>
             <tr>
@@ -144,17 +146,16 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($livrosEmprestados as $emprestimo)
-    <tr>
-        <td>{{ $emprestimo->livro->titulo }}</td>
-        <td>{{ $emprestimo->livro->autor }}</td>
-        <td>{{ $emprestimo->status_emprestimo }}</td>
-    </tr>
-@endforeach
-
+    @foreach ($livrosEmprestados as $emprestimo)
+        <tr>
+            <td>{{ $emprestimo->livro->titulo }}</td>
+            <td>{{ $emprestimo->livro->autor }}</td>
+            <td>{{ $emprestimo->status_emprestimo }}</td>
+        </tr>
+    @endforeach
         </tbody>
     </table>
-@endif
+    @endif
 
 </body>
 

@@ -18,14 +18,13 @@ class ExibirLivrosController extends Controller
 
     public function LivrosEmprestados()
 {
-    $livros = Livro::all(); // Corrigido o nome do modelo para Livro
-    $livrosEmprestados = emprestimos::all();
-    
+    $livrosEmprestados = emprestimos::with('livro')->get();
+
     if ($livrosEmprestados->isEmpty()) {
         $mensagem = "Nenhum livro foi solicitado até o momento";
         return view('LivrosEmprestados', compact('mensagem'));
     } else {
-        return view('LivrosEmprestados', ['emprestimos' => $livrosEmprestados, 'livros' => $livros]);
+        return view('LivrosEmprestados', compact('livrosEmprestados'));
     }
 }
 

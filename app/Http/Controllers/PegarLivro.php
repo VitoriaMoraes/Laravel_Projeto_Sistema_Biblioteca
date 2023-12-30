@@ -20,7 +20,7 @@ class PegarLivro extends Controller
                 'status_emprestimo' => 'Emprestado', // ou outro status desejado
                 'id_livro' => $livroId,
             ]);
-    
+            
             return "Livro emprestado com sucesso!"; 
         }
     }
